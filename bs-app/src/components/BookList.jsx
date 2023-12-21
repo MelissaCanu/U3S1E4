@@ -1,7 +1,6 @@
 import { Component } from "react";
 import { Row, Col, Form, Alert } from "react-bootstrap";
 import SingleBook from "./SingleBook";
-import CommentArea from "./CommentArea";
 
 class BookList extends Component {
 	state = {
