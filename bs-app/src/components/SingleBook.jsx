@@ -5,7 +5,7 @@ import CommentArea from "./CommentArea";
 const SingleBook = ({ book, onClick }) => {
 	return (
 		<>
-			<Card>
+			<Card onClick={() => onClick(book)}>
 				<Card.Img variant="top" src={book.img} alt={book.title} />
 				<Card.Body>
 					<Card.Title>{book.title}</Card.Title>

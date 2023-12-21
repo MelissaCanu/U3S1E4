@@ -13,7 +13,7 @@ class BookList extends Component {
 	};
 
 	render() {
-		const { searchQuery, selectedBook } = this.state;
+		const { searchQuery } = this.state;
 		const { books } = this.props;
 
 		return (
