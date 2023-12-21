@@ -1,13 +1,22 @@
 import { Component } from "react";
-import { Row, Col, Form } from "react-bootstrap";
+import { Row, Col, Form, Alert } from "react-bootstrap";
 import SingleBook from "./SingleBook";
+import CommentArea from "./CommentArea";
 
 class BookList extends Component {
 	state = {
 		searchQuery: "",
+		selectedBook: null,
+	};
+
+	handleBookClick = (book) => {
+		this.setState({ selectedBook: book });
 	};
 
 	render() {
+		const { searchQuery, selectedBook } = this.state;
+		const { books } = this.props;
+
 		return (
 			<>
 				<Row className="mx-2">
@@ -16,20 +25,21 @@ class BookList extends Component {
 							<Form.Control
 								type="search"
 								placeholder="Search book here"
-								value={this.state.searchQuery}
+								value={searchQuery}
 								onChange={(e) => this.setState({ searchQuery: e.target.value })}
 							/>
 						</Form.Group>
 					</Col>
 				</Row>
 				<Row>
-					{this.props.books
-						.filter((book) =>
-							book.title.toLowerCase().includes(this.state.searchQuery)
-						)
+					{books
+						.filter((book) => book.title.toLowerCase().includes(searchQuery))
 						.map((book) => (
 							<Col className="mb-3" xs={6} xl={2} key={book.asin}>
-								<SingleBook book={book} />
+								<SingleBook
+									book={book}
+									onClick={() => this.handleBookClick(book)}
+								/>
 							</Col>
 						))}
 				</Row>
