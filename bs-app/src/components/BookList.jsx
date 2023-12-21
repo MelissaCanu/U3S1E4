@@ -7,18 +7,7 @@ class BookList extends Component {
 		searchQuery: "",
 	};
 
-	// handleChange = (event) => {
-	// 	this.setState({ searchQuery: event.target.value });
-	// };
 	render() {
-		// const { books } = this.props;
-		// const { searchQuery } = this.state;
-		// const filteredBooks = books.filter((book) =>
-		// 	book.title.toLowerCase().includes(searchQuery.toLowerCase())
-		// );
-		// console.log("filteredBooks:", filteredBooks);
-		/* funziona in console, filtra in base all'input, ma non renderizza sulla pagina */
-
 		return (
 			<>
 				<Row className="mx-2">
@@ -50,7 +39,3 @@ class BookList extends Component {
 }
 
 export default BookList;
-
-/* props.categoryArray
-        .filter((book) => book.title.toLowerCase().includes(props.valueToSearch.toLowerCase()))
-        .map((book, index) => */
